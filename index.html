@@ -29,13 +29,12 @@
     <div class="container">
         <h1 class="header_text">Do you wanna go out with me?</h1>
         <div class="gif_container">
-            <img src="https://media.tenor.com/efbi1EpFlVUAAAAi/bugcat-capoo.gif" alt="Cute Capoo GIF">
+            <img src="https://media.tenor.com/efbi1EpFlVUAAAAi/bugcat-capoo.gif" alt="Cute Capoo GIF" loading="lazy">
         </div>
         <div class="buttons">
             <button class="btn" id="yesButton" onclick="nextPage(event)">Yes</button>
             <button class="btn" id="noButton" onmouseover="moveButton()">No</button>
         </div>
-        <!-- Added paragraph -->
         <p>Wakabi loves you</p>
     </div>
     
@@ -61,8 +60,11 @@
             const y = rect.top + rect.height / 2;
             addAfterEffect(x, y);
 
-            // Proceed to the next page or action
-            alert("Proceeding to the next page!");
+            // Delay redirection to allow the animation to complete
+            setTimeout(() => {
+                // Redirect to the Yes page
+                window.location.href = "yes.html"; // Replace "yes.html" with the actual path of your Yes page
+            }, 1000); // Match the animation duration (1 second)
         }
 
         function moveButton() {
