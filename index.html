@@ -16,7 +16,27 @@
             <button class="btn" id="noButton" onmouseover="moveButton()">No</button>
         </div>
     </div>
+    
+    <script>
+        function moveButton() {
+            const noButton = document.getElementById('noButton');
+            const container = document.querySelector('.container');
 
-    <script src="script.js"></script> 
+            // Get random positions within the container's boundaries
+            const containerRect = container.getBoundingClientRect();
+            const minX = 0;
+            const minY = 0;
+            const maxX = containerRect.width - noButton.offsetWidth;
+            const maxY = containerRect.height - noButton.offsetHeight;
+
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+
+            // Apply new position to the button
+            noButton.style.position = 'absolute';
+            noButton.style.left = `${randomX}px`;
+            noButton.style.top = `${randomY}px`;
+        }
+    </script>
 </body>
 </html>
