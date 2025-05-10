@@ -82,6 +82,30 @@
             noButton.style.left = `${randomX}px`;
             noButton.style.top = `${randomY}px`;
         }
+
+        function moveButtonOnClick() {
+            const noButton = document.getElementById('noButton');
+            const container = document.querySelector('.container');
+
+            // Get random positions within the container's boundaries
+            const containerRect = container.getBoundingClientRect();
+            const minX = 0;
+            const minY = 0;
+            const maxX = containerRect.width - noButton.offsetWidth;
+            const maxY = containerRect.height - noButton.offsetHeight;
+
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+
+            // Apply new position to the button
+            noButton.style.position = 'absolute';
+            noButton.style.left = `${randomX}px`;
+            noButton.style.top = `${randomY}px`;
+        }
+
+        // Attach this new function to the "No" button
+        const noButton = document.getElementById('noButton');
+        noButton.addEventListener('click', moveButtonOnClick);
     </script>
 </body>
 </html>
